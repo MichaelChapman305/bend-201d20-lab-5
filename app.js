@@ -75,7 +75,20 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+  let sum = 0;
+  let message = '';
 
+  for (let i = 0; i < testArray.length; i++) {
+    sum += sumArr[i];
+
+    if (i !== sumArr.length - 1) {
+      message += sumArr[i] + ',';
+    } else {
+      message += sumArr[i];
+    }
+  }
+
+  return [sum, `${message} was passed in as an array of numbers, and ${sum} is their sum.`];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
