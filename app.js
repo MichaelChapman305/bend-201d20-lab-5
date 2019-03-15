@@ -75,11 +75,12 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-  let sum = 0;
+  let finalSum = 0;
   let message = '';
 
-  for (let i = 0; i < testArray.length; i++) {
-    sum += sumArr[i];
+  for (let i = 0; i < sumArr.length; i++) {
+    let temp = sum(finalSum, sumArr[i]);
+    finalSum = temp[0];
 
     if (i !== sumArr.length - 1) {
       message += sumArr[i] + ',';
@@ -87,8 +88,8 @@ function sumArray(sumArr) { //eslint-disable-line
       message += sumArr[i];
     }
   }
-
-  return [sum, `${message} was passed in as an array of numbers, and ${sum} is their sum.`];
+  
+  return [finalSum, `${message} was passed in as an array of numbers, and ${finalSum} is their sum.`];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
@@ -127,7 +128,7 @@ function multiplyArray(multArr) { //eslint-disable-line
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-//  testMultiplyArray(testArray);
+// testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
